@@ -6,7 +6,7 @@
   >
     <div class="d-flex w-100 justify-content-between">
       <div class="col-9">
-        <h5 class="mb-1 text-left">{{ card.name }}</h5>
+        <h5 class="mb-1 text-left">lala</h5>
       </div>
       <div class="col-3">
         <small>{{ card.card_number }}</small>

@@ -4,17 +4,17 @@
   "description": "Don't forget to create and migrate the test database environment in your local machine",
   "main": "app.js",
   "scripts": {
-    "test": "NODE_ENV=test npx jest --detectOpenHandles --runInBand",
-    "dev": "NODE_ENV=development npx nodemon bin/http.js",
-    "start": "NODE_ENV=production node bin/http.js",
+    "test": "cross-env NODE_ENV=test npx jest --detectOpenHandles --runInBand",
+    "dev": "cross-env NODE_ENV=development npx supervisor bin/http.js",
+    "start": "cross-env NODE_ENV=production node bin/http.js",
     "db:create": "npx sequelize db:create",
     "db:migrate": "npx sequelize db:migrate",
-    "db:create:test": "NODE_ENV=test npm run db:create",
-    "db:create:development": "NODE_ENV=development npm run db:create",
-    "db:migrate:development": "NODE_ENV=development npm run db:migrate",
-    "db:migrate:test": "NODE_ENV=test npm run db:migrate",
-    "db:seed:test": "NODE_ENV=test npx sequelize db:seed:all",
-    "db:seed:development": "NODE_ENV=development npx sequelize db:seed:all"
+    "db:create:test": "cross-env NODE_ENV=test npm run db:create",
+    "db:create:development": "cross-env NODE_ENV=development npm run db:create",
+    "db:migrate:development": "cross-env NODE_ENV=development npm run db:migrate",
+    "db:migrate:test": "cross-env NODE_ENV=test npm run db:migrate",
+    "db:seed:test": "cross-env NODE_ENV=test npx sequelize db:seed:all",
+    "db:seed:development": "cross-env NODE_ENV=development npx sequelize db:seed:all"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -28,7 +28,10 @@
     "sequelize": "^6.4.0",
     "supertest": "^6.1.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "sequelize-cli": "^6.2.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"

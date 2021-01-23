@@ -25,13 +25,14 @@
       <div class="col-md-8">
 
         <!-- add new comment to card -->
-        <form class="mb-4" :submit.prevent="addComment">
+        <form class="mb-4" @submit.prevent="addComment">
           <div class="form-group">
             <input
               type="text"
               class="form-control"
               placeholder="Enter your name"
               v-model="name"
+              required
             >
           </div>
           <div class="form-group">
@@ -40,6 +41,7 @@
               class="form-control"
               placeholder="Your comment about this card"
               v-model="content"
+              required
             >
           </div>
           <input type="submit" class="btn btn-primary" />
@@ -87,7 +89,12 @@ export default {
         cardNumber: this.$route.params.card_number
       })
         .then(({ data }) => {
-          this.$store.commit('ADD_CARD_COMMENTS', data)
+          this.$store.dispatch('fetchCardDetail', {
+            card_number: this.$route.params.card_number
+          })
+          this.$store.dispatch('fetchCardComments', {
+            card_number: this.$route.params.card_number
+          })
         })
         .catch(err => {
           this.$store.commit('SET_NOTIF', {

@@ -37,7 +37,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-8" v-else-if>
+    <div class="col-lg-8" v-else>
       <LoadingBar />
     </div>
   </Fragment>

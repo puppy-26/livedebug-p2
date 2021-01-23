@@ -17,7 +17,9 @@ class UserController {
           email: user.email
         })
       })
-      .catch(next)
+      .catch((err) => {
+        next(err);
+      })
   }
 
   static login(req, res, next) {
@@ -38,6 +40,7 @@ class UserController {
         }
       })
       .catch(err => {
+        console.log(err);
         next(err)
       })
   }

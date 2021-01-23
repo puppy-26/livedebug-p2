@@ -13,20 +13,21 @@ const routes = [
     component: Home
   },
   {
-    path: '/:card_number',
-    name: 'CardThread',
-    component: CardThread
-  },
-  {
     path: '/about',
     name: 'About',
     component: About
+  },
+  {
+    path: '/:card_number',
+    name: 'CardThread',
+    component: CardThread
   }
 ]
 
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL
+  base: process.env.BASE_URL,
+  routes
 })
 
 export default router

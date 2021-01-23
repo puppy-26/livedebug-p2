@@ -26,7 +26,7 @@ export default {
     Fragment
   },
   computed: {
-    cardList: {
+    cardList () {
       return this.$store.state.cardList
     }
   }
